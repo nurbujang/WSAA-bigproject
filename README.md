@@ -1,8 +1,6 @@
 # WSAA-bigproject
 WSAA big project Spring 2024
 
-## Note: I am doing the DATA REPRESENTATION 2023 project (with permission)
-
 ## Repository contents:
 
 * .gitignore

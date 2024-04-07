@@ -1,8 +1,6 @@
 '''
-I am doing the DATA REPRESENTATION 2023 project (with permission)
-
 Project for Web Services and Applications (Spring 2024)
-flaskproject.py
+flask.py
 Author: Nur Bujang
 
 Create a Web application in Flask that has a RESTful API.
