@@ -1,3 +1,7 @@
+from app import app
+
+
+
 # Project for Web Services and Applications (Spring 2024)
 # flask.py
 # Author: Nur Bujang
@@ -14,6 +18,7 @@
 #     2. One database table and
 #     3. Accompanying web interface, using AJAX calls, to perform these CRUD operations
 
+#### 10 marks if you use pythonanywhere
 # ▪ Make it look nice
 # ▪ Have more than one database table
 # ▪ Link to an outside data source and either:
@@ -24,7 +29,8 @@
 # ▪ Perform more than CRUD operations on your data
 
 
-# 
+
+
 
 
 
