@@ -104,6 +104,12 @@ Python 3.11.5
 
 * pip install Flask
 
+* pip install eurostatapiclient
+
+*  pip install eurostat
+
+* pip install jsonstat.py
+
 ## Running The Code
 
 * Install [Anaconda](https://www.anaconda.com/download)
