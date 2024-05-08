@@ -28,6 +28,9 @@ def logout():
 
 @app.route("/dashboard")
 def dashboard():
-    # pull data from 
+    # data from eurostat
+    # from test_api_eurostat notebook
+
+    # format data flask pass json to javascript
 
     return render_template('dashboard.html', title='Dashboard')
