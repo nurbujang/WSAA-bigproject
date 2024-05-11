@@ -48,14 +48,17 @@
     </nav>
 
     {% if useralert == "update" %}
-        <h3>Update</h3>
+        <h3>Data table has been updated</h3>
     {% elif useralert == "delete" %}
-        <h3>Delete</h3>
+        <h3>Data table has been deleted</h3>
     {% endif %}
     
     {% block useralertblock %}{% endblock %}
     {% block content %}{% endblock %}
     {% block chart %}{% endblock %}
+
+    {% block }
+
 </body>
 
 </html>
