@@ -8,10 +8,11 @@ import pymysql
 from sqlalchemy import create_engine
 
 # replace with pythonanywhere mysql conn
-host= 'nurbujang.mysql.pythonanywhere-services.com'
+
 user='nurbujang'
+host= f'{user}.mysql.pythonanywhere-services.com'
 password = 'rootroot'
-db='wsaaproj'
+db=f'{user}$wsaaproj'
 
 
 
@@ -95,8 +96,8 @@ def euro_update():
 
     # insert and replace sql table
     engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{db}')
-    connection = pymysql.connect(host=host, user=user,
-                         password=password, db=db)    
+    #connection = pymysql.connect(host=host, user=user,
+    #                     password=password, db=db)    
 
     # create cursor
     #cursor=connection.cursor()
