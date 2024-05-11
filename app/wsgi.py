@@ -1,23 +1,19 @@
-
-# entry point
-#import sys
-#path = '/home/nurbujang/mysite/bigproject-WSAA/'
-# when testing locally, use this:
-# path = '.'
-
-# if path not in sys.path:
-#     sys.path.insert(0, path)
-
-from app import app
-
-#from app.application import app #as application
-# replace above
-
-# wsgi (this file) doesn't work
+# when testing locally, path can be commented out
 # flask --app wsgi.py run
 # should be run inside the app/ folder
-if __name__=='__main__':
-    app.run()
-    print('running from __name__')
 
-print('wsgi file')
+# replace the contents in
+#  /var/www/nurbujang_pythonanywhere_com_wsgi.py
+# with these
+
+import sys
+
+path = "/home/nurbujang/mysite/bigproject-WSAA/app"
+if path not in sys.path:
+    sys.path.insert(0, path)
+
+from app import app as application
+
+if __name__ == "__main__":
+    application.run()
+    print("running from __main__")
