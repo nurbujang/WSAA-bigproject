@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 # replace with pythonanywhere mysql conn
 host= 'nurbujang.mysql.pythonanywhere-services.com'
 user='nurbujang'
-password = 'root'
+password = 'rootroot'
 db='wsaaproj'
 
 
