@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template
-
+#/home/nurbujang/.virtualenvs/my_flask
 
 @app.route("/")
 @app.route("/index")
