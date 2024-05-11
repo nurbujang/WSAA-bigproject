@@ -9,11 +9,17 @@
 </head>
 
 <body>
-       
+    
+    <!--buttons for database operation-->
+    <input class="btn btn-primary" type="submit" value="Update Data Table">
+    <input class="btn btn-danger" type="submit" value="Delete Data Table">
+    <input class="btn btn-info" type="submit" value="Plot Data">
+
     {% block content %}
 
     <div id="myPlot" style="width:100%;max-width:700px"></div>
     <div id="tester" style="width:600px;height:250px;"></div>
+    
 
     <script>
         TESTER = document.getElementById('tester');

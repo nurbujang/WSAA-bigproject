@@ -1,11 +1,5 @@
 #from app import app
-#print('app', app)
-#from app.app import *
 from flask import render_template
-
-#from __main__ import app
-
-#/home/nurbujang/.virtualenvs/my_flask
 
 #@app.route("/")
 #@app.route("/index")
