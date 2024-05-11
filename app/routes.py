@@ -88,7 +88,7 @@ def euro_update():
     avia = eurostat.get_data_df('avia_if_arp')
     avia.drop(columns=['freq'], inplace=True, errors='ignore')
     avia.rename(columns={'geo\\TIME_PERIOD': 'country'}, inplace=True)
-    avia_stack = avia.set_index(['tra_infr', 'country']).stack().to_frame().
+    avia_stack = avia.set_index(['tra_infr', 'country']).stack().to_frame()
     avia_stack.reset_index(inplace=True)
     #.sort_values(['tra_infr', 'country', 'level_2'])
     avia_stack.rename(columns={'level_2': 'year', 0: 'value'}, inplace=True)
