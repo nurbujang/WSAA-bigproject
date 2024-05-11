@@ -5,21 +5,50 @@
 
 <head>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
-    
+
 </head>
 
 <body>
-    {{ super() }}
-    <h1>test 1</h1>
-    <!--buttons for database operation: -->
-    <button class="btn btn-primary" type="button" value="Update Data Table"></button>
-    <button class="btn btn-danger" type="button" value="Delete Data Table"></button>
-    <button class="btn btn-info" type="button" value="Plot Data"></button>
+
+    {% block useralertblock %}
+    {% endblock %}
+
     
-    <h1>test</h1>
+
+    {% block content %}
+
+    <form action="{{ dashboard }}" method="post">
+        <input class="btn btn-primary btn-lg" type="submit" name="update" value="update">
+        <input class="btn btn-danger btn-lg" type="submit" name="delete" value="delete">
+        
+    </form>
+
+    <!--buttons for database operation: maybe change to input later -->
+    <div id="buttons" style="width:600px;height:250px;">
+        <button class="btn btn-primary btn-lg" type="button" value="update">UPDATE</button>
+        <button class="btn btn-danger btn-lg" type="button" value="delete">DELETE</button>
+        <button class="btn btn-info btn-lg" type="button" value="plot">PLOT</button>
+    </div>
+
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+    <div id="tester" style="width:600px;height:250px;"></div>
 
 
-  
+    <script>
+        TESTER = document.getElementById('tester');
+        Plotly.newPlot(TESTER, [{
+            x: [1, 2, 3, 4, 5],
+            y: [1, 2, 4, 8, 16]
+        }], {
+            margin: { t: 0 }
+        });
+    </script>
+
+
+    {% endblock %}
+
+
+
 
 </body>
 

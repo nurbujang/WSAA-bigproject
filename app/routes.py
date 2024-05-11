@@ -1,5 +1,5 @@
 #from app import app
-from flask import render_template
+from flask import render_template, request
 
 #@app.route("/")
 #@app.route("/index")
@@ -31,5 +31,22 @@ def dashboard():
     # from test_api_eurostat notebook
 
     # format data flask pass json to javascript
+    if request.method == 'POST':
+        # access the value as {button name} immutable dict
+        # if there is a list, convert to dict with flat=False
+        if request.form.get('update') == 'update':
+            # pymysql to update the data table
+            # need to also alert the user that the operation completed successfully
+            print('clicked the update button')
+            return render_template('dashboard.html', title='Dashboard', useralert='update' )
+        elif request.form.get('delete') == 'delete':
+            # pymysql to delete the data table
+            # alert user
+            print('clicked delete')
+            return render_template('dashboard.html', title='Dashboard', useralert='delete' )
+
+        #print('request', request, request.form.to_dict(flat=True), request.form.get('update'))
+    else:
+        print('GET??')
 
     return render_template('dashboard.html', title='Dashboard')

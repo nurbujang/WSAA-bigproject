@@ -47,7 +47,13 @@
         </div>
     </nav>
 
-
+    {% if useralert == "update" %}
+        <h3>Update</h3>
+    {% elif useralert == "delete" %}
+        <h3>Delete</h3>
+    {% endif %}
+    
+    {% block useralertblock %}{% endblock %}
     {% block content %}{% endblock %}
     {% block chart %}{% endblock %}
 </body>
