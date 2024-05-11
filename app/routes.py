@@ -1,9 +1,14 @@
-from app import app
+#from app import app
+#print('app', app)
+#from app.app import *
 from flask import render_template
+
+#from __main__ import app
+
 #/home/nurbujang/.virtualenvs/my_flask
 
-@app.route("/")
-@app.route("/index")
+#@app.route("/")
+#@app.route("/index")
 def index():
     # return 'Hello pilot!'
 
@@ -26,7 +31,7 @@ def logout():
     # can be just a button
     pass
 
-@app.route("/dashboard")
+#@app.route("/dashboard")
 def dashboard():
     # data from eurostat
     # from test_api_eurostat notebook
