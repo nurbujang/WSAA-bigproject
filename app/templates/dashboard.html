@@ -9,28 +9,17 @@
 </head>
 
 <body>
+    {{ super() }}
+    <h1>test 1</h1>
+    <!--buttons for database operation: -->
+    <button class="btn btn-primary" type="button" value="Update Data Table"></button>
+    <button class="btn btn-danger" type="button" value="Delete Data Table"></button>
+    <button class="btn btn-info" type="button" value="Plot Data"></button>
     
-    <!--buttons for database operation-->
-    <input class="btn btn-primary" type="submit" value="Update Data Table">
-    <input class="btn btn-danger" type="submit" value="Delete Data Table">
-    <input class="btn btn-info" type="submit" value="Plot Data">
-
-    {% block content %}
-
-    <div id="myPlot" style="width:100%;max-width:700px"></div>
-    <div id="tester" style="width:600px;height:250px;"></div>
-    
-
-    <script>
-        TESTER = document.getElementById('tester');
-        Plotly.newPlot( TESTER, [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] }], {
-        margin: { t: 0 } } );
-    </script>
+    <h1>test</h1>
 
 
-{% endblock %}
+  
 
 </body>
 
