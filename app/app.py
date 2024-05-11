@@ -1,8 +1,46 @@
-from flask import Flask
+from flask import Flask, render_template
+# flask --app app/app.py run --x works
 
 app = Flask(__name__)
+print('app', app)
 
-from app import routes
+#from app import routes
+
+@app.route("/")
+@app.route("/index")
+def index():
+    # return 'Hello pilot!'
+
+    html = ""
+
+    # as PoC, display a chart
+    # ref plotly: https://www.w3schools.com/graphics/tryit.asp?filename=tryplotly_bars
+    # return 'Welcome, you can login now'
+
+    user = {"username": "Folliitereito"}
+    return render_template('index.html', title='Home', user=user)
+
+
+def login():
+    # need a form here
+    print('login form here')
+
+
+def logout():
+    # can be just a button
+    pass
+
+@app.route("/dashboard")
+def dashboard():
+    # data from eurostat
+    # from test_api_eurostat notebook
+
+    # format data flask pass json to javascript
+
+    return render_template('dashboard.html', title='Dashboard')
+
+
+
 
 """
 # This file contains the WSGI configuration required to serve up your
@@ -102,7 +140,7 @@ def application(environ, start_response):
 #from main_flask_app_file import app as application  # noqa
 #
 # NB -- many Flask guides suggest you use a file called run.py; that's
-# not necessary on PythonAnywhere.  And you should make sure your code
+## not necessary on PythonAnywhere.  And you should make sure your code
 # does *not* invoke the flask development server with app.run(), as it
 # will prevent your wsgi file from working.
 """
