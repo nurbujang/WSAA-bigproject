@@ -1,7 +1,7 @@
 #from app import app
 from flask import render_template, request
 
-import pandas as pd
+#import pandas as pd
 import eurostat
 
 import pymysql
