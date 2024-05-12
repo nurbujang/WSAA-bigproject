@@ -45,6 +45,8 @@ app.add_url_rule('/dashboard', 'dashboard', routes.dashboard, methods=['GET', 'P
 # https://flask.palletsprojects.com/en/3.0.x/
 # https://docs.sqlalchemy.org/en/20/core/engines.html
 # https://plotly.com/javascript/plotlyjs-function-reference/
+# https://stackoverflow.com/questions/25394493/truncate-table-only-if-it-exists-to-avoid-errors
+# https://gcore.com/learning/how-to-delete-all-rows-mysql/
 # 
 
 
