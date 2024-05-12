@@ -22,19 +22,13 @@ def index():
 
     html = ""
 
-    user = {"username": "Folliitereito"}
+    user = {"username": "User"}
     return render_template("index.html", title="Home", user=user)
 
 
 def login():
     # need a form here
     pass
-
-
-def logout():
-    # can be just a button
-    pass
-
 
 def dashboard():
 
@@ -83,11 +77,6 @@ def dashboard():
 
 
 def euro_update():
-    """
-    add comments here
-    https://stackoverflow.com/questions/58232218/how-to-insert-a-pandas-dataframe-into-mysql-using-pymysql
-    """
-
     # get eurostat data
     avia = eurostat.get_data_df("avia_if_arp")
     avia.drop(columns=["freq"], inplace=True, errors="ignore")
