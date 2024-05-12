@@ -144,7 +144,8 @@ def restapi_read(country):
         engine.dispose()
         return rows
     else:
-        country='DE'
+        #country='DE'
         rows = pd.read_sql(f'SELECT * from aviation WHERE country="{country}"', 
                            engine)
-        return rows.to_json()
+        rows = json.loads(rows.to_json())
+        return rows
