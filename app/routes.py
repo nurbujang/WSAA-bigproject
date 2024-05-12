@@ -60,7 +60,7 @@ def dashboard():
             )
         elif request.form.get("delete") == "DELETE":
 
-            rows = table_delete()
+            rows = int(table_delete())
             if rows != -1:
                 print("clicked delete", rows)
                 return render_template(
@@ -116,13 +116,13 @@ def table_delete():
     cursor = connection.cursor()
     #rows = cursor.execute("DROP TABLE IF EXISTS aviation")
     try:
-        rows = cursor.execute("TRUNCATE TABLE aviation")
+        rows = str(cursor.execute("TRUNCATE TABLE aviation"))
     except Exception as e:
         print('table delete exception:', e)
-        rows = -1
+        rows = str(-1)
     else:
         connection.close()
-        return rows
+        return json.loads(rows)
 
 
 def table_read():
