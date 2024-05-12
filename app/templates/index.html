@@ -9,6 +9,13 @@
     <body>
         {% block content %}
         <h3>Hello, {{ user.username }}!</h3>
+        <p>Welcome to the aviation data service. You can use a web interface to access this through the dashboard page.</p>
+        <p>You can also get the data using REST API</p>
+        <ul>
+            <li>Read country-specific data using this format: /aviation/<country code>. For example, you can get Irish data at <a href="/aviation/ie">here</a> </li>
+            <li><a href="/delete">Delete the data table</a></li>
+            <li><a href="/update">Update the data table with the latest Eurostat data</a></li>
+        </ul>
         {% endblock %}
     </body>
 </html>
