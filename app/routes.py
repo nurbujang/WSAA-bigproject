@@ -130,7 +130,7 @@ def table_read():
     # engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
     # rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
     # engine.dispose()
-    rows = restapi_read()
+    rows = restapi_read(None)
     fig = px.line(rows, x="year", y="value", color="tra_infr")
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
