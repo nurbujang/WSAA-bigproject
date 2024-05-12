@@ -48,8 +48,8 @@ def dashboard():
 
             # query_update = "UPDATE airport SET main = %s WHERE ID = %s "
 
-            print("clicked the update button")
-            rows = euro_update()
+            #print("clicked the update button")
+            rows = json.loads(euro_update())
             json = {"button": "update", "rows": rows}
 
             return render_template(
@@ -107,7 +107,7 @@ def euro_update():
     # Execute the to_sql for writing DF into SQL
     rows = avia_stack.to_sql("aviation", engine, if_exists="replace", index=False)
     engine.dispose() # important to avoid multiple connections
-    return rows
+    return json.dumps(rows)
 
 
 def table_delete():
