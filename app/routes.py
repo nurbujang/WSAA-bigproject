@@ -118,6 +118,7 @@ def euro_update():
     # cursor=connection.cursor()
     # Execute the to_sql for writing DF into SQL
     rows = avia_stack.to_sql("aviation", engine, if_exists="replace", index=False)
+    engine.dispose() # important to avoid multiple connections
     return rows
 
 
@@ -126,6 +127,7 @@ def table_delete():
     connection = pymysql.connect(host=host, user=user, password=password, db=db)
     cursor = connection.cursor()
     rows = cursor.execute("DROP TABLE IF EXISTS aviation")
+    connection.close()
     return rows
 
 
@@ -137,7 +139,7 @@ def table_read():
 
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
     rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
-
+    engine.dispose()
     fig = px.line(rows, x="year", y="value", color="tra_infr")
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
