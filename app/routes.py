@@ -52,7 +52,7 @@ def dashboard():
     if request.method == "POST":
         # access the value as {button name} immutable dict
         # if there is a list, convert to dict with flat=False
-        if request.form.get("update") == "update":
+        if request.form.get("update") == "UPDATE":
             # pymysql to update the data table
             # need to also alert the user that the operation completed successfully
 
@@ -68,7 +68,7 @@ def dashboard():
                 # useralert=json
                 useralert="update",
             )
-        elif request.form.get("delete") == "delete":
+        elif request.form.get("delete") == "DELETE":
 
             # # query_delete = "DELETE FROM airport WHERE country=%s;"
 
@@ -77,9 +77,9 @@ def dashboard():
             return render_template(
                 "dashboard.html", title="Dashboard", useralert="delete"
             )
-        elif request.form.get("plot") == "plot":
+        elif request.form.get("plot") == "PLOT":
             rows = table_read()  # json format
-            return render_template('dashboard.html', graphJSON=rows)
+            return render_template("dashboard.html", title="Dashboard", graphJSON=rows)
 
             # pass rows to dashboard.html as something
             # as json or as plotly figure json
@@ -142,7 +142,7 @@ def table_read():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return graphJSON
-    #return rows.to_json()
+    # return rows.to_json()
 
 
 # query_create = create table login (username varchar(250) NOT NULL,
