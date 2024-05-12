@@ -127,10 +127,24 @@ def table_delete():
 
 def table_read():
 
-    engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
-    rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
-    engine.dispose()
+    # engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
+    # rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
+    # engine.dispose()
+    rows = restapi_read()
     fig = px.line(rows, x="year", y="value", color="tra_infr")
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return graphJSON
+
+def restapi_read(country):
+    engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
+
+    if country is None:
+        rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
+        engine.dispose()
+        return rows
+    else:
+        country='DE'
+        rows = pd.read_sql(f'SELECT * from aviation WHERE country="{country}"', 
+                           engine)
+        return rows.to_json()
