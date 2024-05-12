@@ -23,7 +23,7 @@
 
     <!--buttons for database operation: maybe change to input later -->
     <div id="buttons" style="width:600px;height:250px;">
-        
+
         <button class="btn btn-info btn-lg" type="button" value="plot">PLOT</button>
     </div>
 
@@ -36,14 +36,14 @@
         Plotly.newPlot(TESTER, [{
             x: [1, 2, 3, 4, 5],
             y: [1, 2, 4, 8, 16]
-        }], {
-            margin: { t: 0 }
-        });
+        }], {margin: { t: 0 }});
     </script>
 
     <script>
         var graphs = {{ graphJSON | safe}};
-        Plotly.plot('chart', graphs, {});
+        TESTER = document.getElementById('tester');
+        //Plotly.plot('chart', graphs, {});
+        Plotly.newPlot(TESTER, graphs, {margin: { t: 0 }});
     </script>
 
 
