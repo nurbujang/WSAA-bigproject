@@ -7,13 +7,10 @@ import eurostat
 import pymysql
 from sqlalchemy import create_engine
 
-# pip install plotly
 import plotly.express as px
 import plotly
 import json
 
-
-# replace with pythonanywhere mysql conn
 
 user = "nurbujang"
 host = f"{user}.mysql.pythonanywhere-services.com"
@@ -22,13 +19,8 @@ db = f"{user}$wsaaproj"
 
 
 def index():
-    # return 'Hello pilot!'
 
     html = ""
-
-    # as PoC, display a chart
-    # ref plotly: https://www.w3schools.com/graphics/tryit.asp?filename=tryplotly_bars
-    # return 'Welcome, you can login now'
 
     user = {"username": "Folliitereito"}
     return render_template("index.html", title="Home", user=user)
@@ -45,8 +37,6 @@ def logout():
 
 
 def dashboard():
-    # data from eurostat
-    # from test_api_eurostat notebook
 
     # format data flask pass json to javascript
     if request.method == "POST":
@@ -61,7 +51,7 @@ def dashboard():
             print("clicked the update button")
             rows = euro_update()
             json = {"button": "update", "rows": rows}
-            # c json can be passed and parsed
+
             return render_template(
                 "dashboard.html",
                 title="Dashboard",
@@ -69,8 +59,6 @@ def dashboard():
                 useralert="update",
             )
         elif request.form.get("delete") == "DELETE":
-
-            # # query_delete = "DELETE FROM airport WHERE country=%s;"
 
             rows = table_delete()
             if rows != -1:
@@ -88,13 +76,6 @@ def dashboard():
             rows = table_read()  # json format
             return render_template("dashboard.html", title="Dashboard", graphJSON=rows)
 
-            # pass rows to dashboard.html as something
-            # as json or as plotly figure json
-            # cleanest: https://efi.mit.edu/spring23/ex06/plotly
-            # clean with beautifulsoup: https://www.reddit.com/r/flask/comments/xm23bq/comment/ipo5k35/
-            # messy-ish with react: https://stackoverflow.com/questions/72930513/how-to-plot-plotly-chart-on-react-from-json-response-from-flask-api
-
-        # print('request', request, request.form.to_dict(flat=True), request.form.get('update'))
     else:
         print("GET")
 
@@ -145,10 +126,6 @@ def table_delete():
 
 
 def table_read():
-    # connection = pymysql.connect(host=host, user=user, password=password, db=db)
-    # cursor = connection.cursor()
-    # cursor.execute('SELECT * FROM aviation WHERE country="IE";')
-    # rows = cursor.fetchall()
 
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
     rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
@@ -157,20 +134,3 @@ def table_read():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return graphJSON
-    # return rows.to_json()
-
-
-# query_create = create table login (username varchar(250) NOT NULL,
-# password varchar(250) NOT NULL,
-# priviledge text);
-
-# ("insert INTO login (username, password, priviledge) values ("admin", "password", "admin");
-# query_insert = ("INSERT INTO person " + "(personID, personname, age, salary, city) " + "VALUES (%s, %s, %s, %s, %s)")
-
-# select * from login;
-
-# create table airport (country varchar(250) NOT NULL,
-# year (int),
-# main varchar(250),
-# other varchar(250),
-# small varchar(250)
