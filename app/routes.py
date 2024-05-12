@@ -73,10 +73,17 @@ def dashboard():
             # # query_delete = "DELETE FROM airport WHERE country=%s;"
 
             rows = table_delete()
-            print("clicked delete", rows)
-            return render_template(
-                "dashboard.html", title="Dashboard", useralert="delete"
-            )
+            if rows != -1:
+                print("clicked delete", rows)
+                return render_template(
+                    "dashboard.html", title="Dashboard", useralert="delete"
+                )
+            else:
+                print('error in delete')
+                return render_template(
+                    "dashboard.html", title="Dashboard", useralert="delete_error"
+                )
+
         elif request.form.get("plot") == "PLOT":
             rows = table_read()  # json format
             return render_template("dashboard.html", title="Dashboard", graphJSON=rows)
@@ -126,9 +133,15 @@ def table_delete():
     # sql delete table
     connection = pymysql.connect(host=host, user=user, password=password, db=db)
     cursor = connection.cursor()
-    rows = cursor.execute("DROP TABLE IF EXISTS aviation")
-    connection.close()
-    return rows
+    #rows = cursor.execute("DROP TABLE IF EXISTS aviation")
+    try:
+        rows = cursor.execute("TRUNCATE TABLE aviation")
+    except Exception as e:
+        print('table delete exception:', e)
+        rows = -1
+    else:
+        connection.close()
+        return rows
 
 
 def table_read():
