@@ -2,22 +2,27 @@
 
 <!doctype html>
 <html>
-    <head>
-        
-        
-    </head>
-    <body>
-        {% block content %}
-        
+
+<head>
+
+
+</head>
+
+<body>
+    {% block content %}
+    <div class="w-50">
         <img src="/static/airplane-3702676_1280.jpg" class="img-fluid max-width: 50%" alt="Image of airliner flying">
-        <h3>Hello, {{ user.username }}!</h3>
-        <p>Welcome to the aviation data service. You can use a web interface to access this through the dashboard page.</p>
-        <p>You can also get the data using REST API</p>
-        <ul>
-            <li>Read country-specific data using this format: /aviation/<country code>. For example, you can get Irish data at <a href="/aviation/ie">here</a> </li>
-            <li><a href="/delete">Delete the data table</a></li>
-            <li><a href="/update">Update the data table with the latest Eurostat data</a></li>
-        </ul>
-        {% endblock %}
-    </body>
+    </div>
+    <h3>Hello, {{ user.username }}!</h3>
+    <p>Welcome to the aviation data service. You can use a web interface to access this through the dashboard page.</p>
+    <p>You can also get the data using REST API</p>
+    <ul>
+        <li>Read country-specific data using this format: /aviation/<country code>. For example, you can get Irish data
+                at <a href="/aviation/ie">here</a> </li>
+        <li><a href="/delete">Delete the data table</a></li>
+        <li><a href="/update">Update the data table with the latest Eurostat data</a></li>
+    </ul>
+    {% endblock %}
+</body>
+
 </html>
