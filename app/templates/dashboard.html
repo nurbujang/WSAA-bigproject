@@ -18,32 +18,15 @@
         <input class="btn btn-primary btn-lg" type="submit" name="update" value="UPDATE">
         <input class="btn btn-danger btn-lg" type="submit" name="delete" value="DELETE">
         <input class="btn btn-info btn-lg" type="submit" name="plot" value="PLOT">
-        <!--read data from the table and return as json -->
     </form>
 
-    <!--buttons for database operation: maybe change to input later -->
-    <div id="buttons" style="width:600px;height:250px;">
-
-        <button class="btn btn-info btn-lg" type="button" value="plot">PLOT</button>
-    </div>
-
-    <div id="myPlot" style="width:100%;max-width:700px"></div>
-    <div id="tester" style="width:600px;height:250px;"></div>
-
-
-    <script>
-        TESTER = document.getElementById('tester');
-        Plotly.newPlot(TESTER, [{
-            x: [1, 2, 3, 4, 5],
-            y: [1, 2, 4, 8, 16]
-        }], {margin: { t: 0 }});
-    </script>
+    <!-- <div id="tester" style="width:600px;height:250px;"></div> -->
+    <div id="plotdiv"></div>
 
     <script>
         var graphs = {{ graphJSON | safe}};
-        TESTER = document.getElementById('tester');
-        //Plotly.plot('chart', graphs, {});
-        Plotly.newPlot(TESTER, graphs, {margin: { t: 0 }});
+        PLOTDIV = document.getElementById('plotdiv');
+        Plotly.newPlot(PLOTDIV, graphs, { margin: { t: 0 } });
     </script>
 
 
