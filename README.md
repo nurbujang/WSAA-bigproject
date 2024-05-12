@@ -1,6 +1,9 @@
 # WSAA-bigproject
 WSAA big project Spring 2024
 
+## PROJECT TITLE 
+
+
 ## Repository contents:
 
 * .gitignore
@@ -17,98 +20,25 @@ WSAA big project Spring 2024
 
 * README.md
 
-
-
-## PROJECT TABLE OF CONTENTS 
-
-* PROJECT TITLE: 
-
-* Abstract
-
-* 1.0 Background
-
-* 2.0 Methods and Implementation
-
-    * 2.1 
-
-        * 2.1.1 
-
-            * 2.1.1.1 
-
-            * 2.1.1.2 
-
-        * 2.1.2 
-
-            * 2.1.2.1 
-
-            * 2.1.2.2 
-            
-            * 2.1.2.3 
-
-    * 2.2 Summary Statistics
-
-        * 2.2.1 
-
-            * 2.2.1.1 
-
-            * 2.2.1.2 
-            
-            * 2.2.1.3 
-
-            * 2.2.1.4 
-
-            * 2.2.1.5 
-
-            * 2.2.1.6 
-
-            * 2.2.1.7 
-
-            * 2.2.1.8 
-
-        * 2.2.2 
-
-            * 2.2.2.1 
-
-            * 2.2.2.2 
-            
-            * 2.2.2.3 
-
-            * 2.2.2.4 
-
-            * 2.2.2.5 
-
-            * 2.2.2.6 
-
-            * 2.2.2.7 
-
-            * 2.2.2.8 
-
-    * 2.3 Plots
-
-        * 2.3.1 
-
-        * 2.3.2 
-
-* 3.0 Conclusion
-
-* 4.0 References
-
-
 ## Technologies Used
 
 Python 3.11.5
 
 ## Installation Instructions
 
-* pip install PyGithub
+* pip install pandas
+
+* pip install pymysql
 
 * pip install Flask
 
-* pip install eurostatapiclient
+* pip install sqlalchemy
 
-*  pip install eurostat
+* pip install eurostat
 
+* pip install plotly
 
+* pip install plotly-express
 
 ## Running The Code
 

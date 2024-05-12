@@ -11,7 +11,7 @@
 <body>
 
     {% block useralertblock %}{% endblock %}
-    
+
     {% block content %}
 
     <form action="{{ dashboard }}" method="post">
@@ -39,6 +39,11 @@
         }], {
             margin: { t: 0 }
         });
+    </script>
+
+    <script>
+        var graphs = {{ graphJSON | safe}};
+        Plotly.plot('chart', graphs, {});
     </script>
 
 

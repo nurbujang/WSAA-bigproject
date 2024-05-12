@@ -7,6 +7,12 @@ import eurostat
 import pymysql
 from sqlalchemy import create_engine
 
+# pip install plotly
+import plotly.express as px
+import plotly
+import json
+
+
 # replace with pythonanywhere mysql conn
 
 user = "nurbujang"
@@ -72,7 +78,8 @@ def dashboard():
                 "dashboard.html", title="Dashboard", useralert="delete"
             )
         elif request.form.get("plot") == "plot":
-            rows = table_read() # json format
+            rows = table_read()  # json format
+            return render_template('dashboard.html', graphJSON=rows)
 
             # pass rows to dashboard.html as something
             # as json or as plotly figure json
@@ -123,15 +130,19 @@ def table_delete():
 
 
 def table_read():
-    #connection = pymysql.connect(host=host, user=user, password=password, db=db)
-    #cursor = connection.cursor()
-    #cursor.execute('SELECT * FROM aviation WHERE country="IE";')
-    #rows = cursor.fetchall()
+    # connection = pymysql.connect(host=host, user=user, password=password, db=db)
+    # cursor = connection.cursor()
+    # cursor.execute('SELECT * FROM aviation WHERE country="IE";')
+    # rows = cursor.fetchall()
 
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
     rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
-    
-    return rows.to_json()
+
+    fig = px.line(rows, x="year", y="value", color="tra_infr")
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON
+    #return rows.to_json()
 
 
 # query_create = create table login (username varchar(250) NOT NULL,
