@@ -97,25 +97,22 @@ def dashboard():
     if request.method == "POST":
         # access the value as {button name} immutable dict
         # if there is a list, convert to dict with flat=False
-        print('request method', request.form.to_dict(flat=False))
+        #print('request method', request.form.to_dict(flat=False))
         if request.form.get("update") == "UPDATE":
             # pymysql to update the data table
             # need to also alert the user that the operation completed successfully
 
-            print("clicked the update button")
+            #print("clicked the update button")
             rows = json.loads(euro_update())
-            #json = {"button": "update", "rows": rows}
 
             return render_template(
                 "dashboard.html",
                 title="Dashboard",
-                # useralert=json
                 useralert="update",
             )
         elif request.form.get("delete") == "DELETE":
-            print('table_delete', table_delete())
             rows = json.loads(table_delete())
-            print('rows:', rows)
+            #print('rows:', rows)
             if rows != -1:
                 print("clicked delete", rows)
                 return render_template(
