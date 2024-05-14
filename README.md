@@ -5,11 +5,11 @@ WSAA big project Spring 2024
 Aviation Data Service With Flask and REST-API
 
 ## PROJECT DESCRIPTION
-The objective of this project is to obtain data on Irish airport infrastructure from 
+The objective of this project is to obtain data on airport infrastructure from 
 
 A web application was created in Flask and hosted pn pythonanywhere.com.
 
-Data on  was extracted from Eurostat as an excel file and converted into json. 
+Data on  was extracted from Eurostat 
 
 > Your project should interact with an API, or create one.
 > CRUD operations on the data

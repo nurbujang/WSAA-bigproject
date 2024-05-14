@@ -20,7 +20,6 @@ db = df['db'][0]
 def index():
 
     html = ""
-
     user = {"username": "User"}
     return render_template("index.html", title="Home", user=user)
 
