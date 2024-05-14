@@ -26,57 +26,6 @@ def index():
     return render_template("index.html", title="Home", user=user)
 
 
-def login():
-    # need a form here
-    pass
-
-def dashboard():
-
-    # format data flask pass json to javascript
-    if request.method == "POST":
-        # access the value as {button name} immutable dict
-        # if there is a list, convert to dict with flat=False
-        if request.form.get("update") == "UPDATE":
-            # pymysql to update the data table
-            # need to also alert the user that the operation completed successfully
-
-            # query_update = "UPDATE airport SET main = %s WHERE ID = %s "
-
-            #print("clicked the update button")
-            rows = json.loads(euro_update())
-            json = {"button": "update", "rows": rows}
-
-            return render_template(
-                "dashboard.html",
-                title="Dashboard",
-                # useralert=json
-                useralert="update",
-            )
-        elif request.form.get("delete") == "DELETE":
-
-            rows = json.loads(table_delete())
-            print('rows:', rows)
-            if rows != -1:
-                print("clicked delete", rows)
-                return render_template(
-                    "dashboard.html", title="Dashboard", useralert="delete"
-                )
-            else:
-                print('error in delete')
-                return render_template(
-                    "dashboard.html", title="Dashboard", useralert="delete_error"
-                )
-
-        elif request.form.get("plot") == "PLOT":
-            rows = table_read()  # json format
-            return render_template("dashboard.html", title="Dashboard", graphJSON=rows)
-
-    else:
-        print("GET")
-
-    return render_template("dashboard.html", title="Dashboard")
-
-
 def euro_update():
     # get eurostat data
     avia = eurostat.get_data_df("avia_if_arp")
@@ -141,3 +90,50 @@ def restapi_read(country):
         # to provide a browser-friendly output
         rows = json.loads(rows.to_json())
         return rows
+
+
+def dashboard():
+
+    # format data flask pass json to javascript
+    if request.method == "POST":
+        # access the value as {button name} immutable dict
+        # if there is a list, convert to dict with flat=False
+        if request.form.get("update") == "UPDATE":
+            # pymysql to update the data table
+            # need to also alert the user that the operation completed successfully
+
+            # query_update = "UPDATE airport SET main = %s WHERE ID = %s "
+
+            #print("clicked the update button")
+            rows = json.loads(euro_update())
+            json = {"button": "update", "rows": rows}
+
+            return render_template(
+                "dashboard.html",
+                title="Dashboard",
+                # useralert=json
+                useralert="update",
+            )
+        elif request.form.get("delete") == "DELETE":
+
+            rows = json.loads(table_delete())
+            print('rows:', rows)
+            if rows != -1:
+                print("clicked delete", rows)
+                return render_template(
+                    "dashboard.html", title="Dashboard", useralert="delete"
+                )
+            else:
+                print('error in delete')
+                return render_template(
+                    "dashboard.html", title="Dashboard", useralert="delete_error"
+                )
+
+        elif request.form.get("plot") == "PLOT":
+            rows = table_read()  # json format
+            return render_template("dashboard.html", title="Dashboard", graphJSON=rows)
+
+    else:
+        print("GET")
+
+    return render_template("dashboard.html", title="Dashboard")
