@@ -13,7 +13,7 @@ The components are:
 
 > routes.py, which contains the route definitions that handle incoming requests from the web interface. It includes functions for CRUD operations.
 
-> wsgi.py, which serves as the entry point for the WSGI server to run the Flask application. It initializes the Flask app and provides the server with the callable application object.
+> wsgi_for_pythonanywhere.py.py, which serves as the entry point for the WSGI server to run the Flask application. It initializes the Flask app and provides the server with the callable application object.
 
 > base.html, which is the base template that other HTML pages inherit from. It contains elements such as the header, footer, and navigation bar.
 
