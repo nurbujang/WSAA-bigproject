@@ -36,11 +36,7 @@ def euro_update():
 
     # insert and replace sql table
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
-    # connection = pymysql.connect(host=host, user=user,
-    #                     password=password, db=db)
 
-    # create cursor
-    # cursor=connection.cursor()
     # Execute the to_sql for writing DF into SQL
     rows = avia_stack.to_sql("aviation", engine, if_exists="replace", index=False)
     engine.dispose() # important to avoid multiple connections
@@ -65,9 +61,6 @@ def table_delete():
 
 def table_read():
 
-    # engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
-    # rows = pd.read_sql('SELECT * from aviation WHERE country="IE"', engine)
-    # engine.dispose()
     rows = restapi_read(None)
     fig = px.line(rows, x="year", y="value", color="tra_infr")
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
@@ -101,7 +94,6 @@ def dashboard():
             # pymysql to update the data table
             # need to also alert the user that the operation completed successfully
 
-            #print("clicked the update button")
             rows = json.loads(euro_update())
 
             return render_template(
@@ -111,7 +103,7 @@ def dashboard():
             )
         elif request.form.get("delete") == "DELETE":
             rows = json.loads(table_delete())
-            #print('rows:', rows)
+
             if rows != -1:
                 print("clicked delete", rows)
                 return render_template(

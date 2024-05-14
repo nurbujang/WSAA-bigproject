@@ -2,17 +2,26 @@
 WSAA big project Spring 2024
 
 ## PROJECT TITLE
-Aviation Data Service With Flask and REST-API
+PROJECT TYPE B: AVIATION DATA SERVICE WITH FLASK AND REST API
 
-## PROJECT DESCRIPTION
-The objective of this project is to obtain data on airport infrastructure from 
+## PROJECT BRIEF
+The objective of this project is to retrieve data on airport infrastructure in European countries from 2001 to 2021. Airport data was extracted from Eurostat and the web application was created in Flask. The python code consumes the Eurostat data and displays it in the html dashboard page. The web application is hosted on pythonanywhere.com.
 
-A web application was created in Flask and hosted pn pythonanywhere.com.
+The components are:
 
-Data on  was extracted from Eurostat 
+> app.py, which is the main entry point of the Flask application. It initializes the Flask app, sets up the database connection, and establishes the routes for different API endpoints and web pages.
 
-> Your project should interact with an API, or create one.
-> CRUD operations on the data
+> routes.py, which contains the route definitions that handle incoming requests from the web interface. It includes functions for CRUD operations.
+
+> wsgi.py, which serves as the entry point for the WSGI server to run the Flask application. It initializes the Flask app and provides the server with the callable application object.
+
+> base.html, which is the base template that other HTML pages inherit from. It contains elements such as the header, footer, and navigation bar.
+
+> index.html, which serves as the main landing page of the web application. It contains a list of available data and options to interact with the API.
+
+> dashboard.html, which provides a more detailed view of the data and allowing users to perform CRUD operations via a user-friendly interface.
+
+The user can perform CRUD operations by making a request via REST API endpoints which handle requests and return responses in JSON format. The application interacts with MySQL database, used PyMySQL for MySQL database connectivity and SQLAlchemy as a tool for database interaction. The HTML templates consume the API endpoints to display data to users and allow them to perform CRUD operations. Plotly was used as a plotting library for data visualization.
 
 ## REFERENCES
 
