@@ -102,11 +102,9 @@ def dashboard():
             # pymysql to update the data table
             # need to also alert the user that the operation completed successfully
 
-            # query_update = "UPDATE airport SET main = %s WHERE ID = %s "
-
-            #print("clicked the update button")
+            print("clicked the update button")
             rows = json.loads(euro_update())
-            json = {"button": "update", "rows": rows}
+            #json = {"button": "update", "rows": rows}
 
             return render_template(
                 "dashboard.html",
