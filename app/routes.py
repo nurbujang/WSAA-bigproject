@@ -115,7 +115,7 @@ def dashboard():
                 useralert="update",
             )
         elif request.form.get("delete") == "DELETE":
-
+            print('table_delete', table_delete())
             rows = json.loads(table_delete())
             print('rows:', rows)
             if rows != -1:
