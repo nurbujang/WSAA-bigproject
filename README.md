@@ -156,6 +156,8 @@ w3schools (2019). HTML img tag. [online] W3schools.com. Available at: https://ww
 
 * README.md
 
+* requirements.txt
+
 * app.py
 
 * routes.py
