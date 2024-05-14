@@ -1,4 +1,3 @@
-# from app import app
 from flask import render_template, request
 
 import pandas as pd
@@ -98,6 +97,7 @@ def dashboard():
     if request.method == "POST":
         # access the value as {button name} immutable dict
         # if there is a list, convert to dict with flat=False
+        print('request method', request.form.to_dict(flat=False))
         if request.form.get("update") == "UPDATE":
             # pymysql to update the data table
             # need to also alert the user that the operation completed successfully
