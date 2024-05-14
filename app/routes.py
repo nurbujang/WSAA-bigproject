@@ -11,11 +11,12 @@ import plotly.express as px
 import plotly
 import json
 
+df = pd.read_csv('~/db.csv')
 
-user = "nurbujang"
-host = f"{user}.mysql.pythonanywhere-services.com"
-password = "rootroot"
-db = f"{user}$wsaaproj"
+user = df['user'][0]
+host = df['host'][0]
+password = df['password'][0]
+db = df['db'][0]
 
 
 def index():
