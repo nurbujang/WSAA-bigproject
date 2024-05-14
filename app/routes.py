@@ -12,7 +12,6 @@ import plotly
 import json
 
 df = pd.read_csv('~/db.csv')
-
 user = df['user'][0]
 host = df['host'][0]
 password = df['password'][0]
@@ -56,6 +55,7 @@ def dashboard():
         elif request.form.get("delete") == "DELETE":
 
             rows = json.loads(table_delete())
+            print('rows:', rows)
             if rows != -1:
                 print("clicked delete", rows)
                 return render_template(
